@@ -1,0 +1,29 @@
+{
+  "name": "nikhil-claude-kit",
+  "owner": {
+    "name": "Nikhil Garg"
+  },
+  "metadata": {
+    "description": "Personal Claude Code kit: proof-driven code review skill plus a pre-push reminder hook for CI and build-gate changes"
+  },
+  "plugins": [
+    {
+      "name": "review-kit",
+      "source": "./",
+      "description": "Adversarial, proof-driven code review for CI/CD, GitHub Actions workflows, shell scripts and build gates, with a pre-push reminder hook. Core rule: no finding without a command that demonstrates it.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Nikhil Garg"
+      },
+      "license": "MIT",
+      "keywords": [
+        "code-review",
+        "ci",
+        "github-actions",
+        "shell",
+        "hooks",
+        "fail-open"
+      ]
+    }
+  ]
+}
