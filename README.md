@@ -59,14 +59,6 @@ Skill descriptions only *advise* activation. To make it fire reliably, add to
   not the diff.
 ```
 
-## Origin
-
-Distilled from fourteen review findings on a single CI pull request, plus an honest account
-of why the author's own review missed them. Every rule in the shell/Python/test packs traces
-to a defect that actually shipped, not to a style preference.
-
-Known gap: no C++, ROS 2, or CUDA rule packs yet. Those get added when there are real findings
-to derive them from — inventing them up front is how a review skill degenerates into noise.
 
 ## License
 
