@@ -138,6 +138,13 @@ test over recommending vigilance.
   run in. Whenever a change touches a `permissions:` block or a `uses: ./.github/workflows/`
   edge, run `check_workflow_permissions.py <workflows dir>` from this skill's directory. It
   exits non-zero on a shortfall, and on anything that stopped it looking.
+- A position-keyed lint suppression — zizmor's `file.yml:LINE:COL` ignores, or any allowlist
+  anchored by line — is load-bearing coupling with nothing enforcing it. Insert a line above the
+  anchor and it silently points at innocent code: the suppressed finding returns, surfacing on
+  whichever unrelated PR next runs the lint. Line existence is not the check, because drift
+  usually lands on a real line. Run `check_zizmor_pins.py <config> <workflows dir>` from this
+  skill's directory; it matches each anchor against what could actually produce that rule's
+  finding, and names anchors whose rule it cannot verify rather than calling them clean.
 
 ### Python
 
