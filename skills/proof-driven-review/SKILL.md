@@ -131,6 +131,13 @@ test over recommending vigilance.
   can "gracefully skip" with exit 0 — that exit code becomes a green required check.
 - One constant, one place. A magic string duplicated across shell and another language has no
   test tying the copies together; the untested copy is the one that breaks.
+- Cross-workflow permission narrowing is invisible to actionlint, which lints each workflow in
+  isolation. A callee may only narrow its caller's permissions: a scope requested downstream but
+  granted nowhere upstream makes GitHub reject the entire run as a startup failure — zero jobs,
+  no log, no check run (so the commit still goes green), and no job for a failure notifier to
+  run in. Whenever a change touches a `permissions:` block or a `uses: ./.github/workflows/`
+  edge, run `check_workflow_permissions.py <workflows dir>` from this skill's directory. It
+  exits non-zero on a shortfall, and on anything that stopped it looking.
 
 ### Python
 
